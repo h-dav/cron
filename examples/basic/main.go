@@ -6,7 +6,6 @@ import (
 	"os"
 	"time"
 
-	"github.com/google/uuid"
 	"github.com/h-dav/cron"
 )
 
@@ -15,10 +14,7 @@ func main() {
 
 	logger := slog.New(slog.NewJSONHandler(os.Stdout, nil))
 
-	uuid, _ := uuid.NewUUID()
-
 	job := cron.Job{
-		ID:   uuid,
 		Name: "Simple counter",
 		JobFunc: func() error {
 			counter = counter + 1
